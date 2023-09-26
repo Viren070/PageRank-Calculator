@@ -34,7 +34,7 @@ while True:
     inp = input("")
     if inp == "exit":
         break
-    if not re.match(r'^[A-Za-z]+:([A-Za-z]+,)*[A-Za-z]*$', inp):
+    if not re.match(r'^[A-Za-z]+:([A-Za-z]+,)*[A-Za-z]*$', inp.strip()):
         print("Invalid input format. Please use the format 'A:B,C,'")
         continue
     page_inputs.append(inp.strip())
@@ -57,11 +57,9 @@ for page in PAGE_ARRAY:
 
 iterations_to_run = int(input("Enter Number of iterations to run: "))
 for current_iteration in range(1, iterations_to_run + 1):
-    print(f"\nIteration {current_iteration}: \n")
     for page in PAGE_ARRAY:
         page.calculate_pagerank()
-        print(f"PageRank of {page.name}: {page.PageRank:.2f}")
         
-print("------------FINAL RESULT--------------"+"Initial Problem:\n"+str(PAGE_INPUTS)+"Final Result:\n")
+print("------------FINAL RESULT--------------"+"\nInitial Problem:\n"+str(PAGE_INPUTS)+"\nFinal Result:\n")
 for page in PAGE_ARRAY:
     print(f"PageRank of {page.name}: {page.PageRank:.2f}")
