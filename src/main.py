@@ -43,7 +43,7 @@ for page in page_array:
     # Remove duplicates and self-references
     unique_outbounds = []
     for outbound in outbounds:
-        if outbound not in unique_outbounds and outbound != page.name:
+        if outbound not in unique_outbounds and outbound != page.name and outbound != "":
             unique_outbounds.append(outbound)
     
     for outbound in unique_outbounds:
